@@ -44,6 +44,6 @@ jobs:
       - with:
           name: myapp
           path: 
-            "build/app/outputs/apk/debug/*.apk"
-            "build/ios/iphoneos/*.app"
+            build/app/outputs/apk/debug/*.apk
+            build/ios/iphoneos/*.app
 
