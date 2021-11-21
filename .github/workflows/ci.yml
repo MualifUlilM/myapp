@@ -30,13 +30,13 @@ jobs:
         with:
           flutter-version: "2.5"
       - run: flutter pub get
-      # - run: flutter analyze
-      # - run: flutter test
-      # - run: flutter build apk --debug
+      - run: flutter analyze
+      - run: flutter test
+      - run: flutter build apk --debug
       - run: flutter build ios --debug --no-codesign
       - uses: ncipollo/release-action@v1
         with:
-         artifacts: "build/app/outputs/ios/iphoneos/*.app"
+         artifacts: "build/app/outputs/apk/debug/*.apk"
          token: ${{ secrets.GH_TOKEN }}
          tag: "1.1.0"
          commit: ${{ github.sha }}
