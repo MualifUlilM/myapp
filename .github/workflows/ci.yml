@@ -41,7 +41,7 @@ jobs:
       #    tag: "1.1.0"
       #    commit: ${{ github.sha }}
       - uses: actions/upload-artifact@v1
-      - with:
+        with:
           name: myapp
           path: |
             build/app/outputs/apk/debug/*.apk
