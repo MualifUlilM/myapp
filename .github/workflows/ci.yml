@@ -30,20 +30,14 @@ jobs:
         with:
           flutter-version: "2.5"
       - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test
-      - run: flutter build apk --debug
+      # - run: flutter analyze
+      # - run: flutter test
+      # - run: flutter build apk --debug
       - run: flutter build ios --debug --no-codesign
-      # - uses: ncipollo/release-action@v1
-      #   with:
-      #    artifacts: "build/app/outputs/apk/debug/*.apk"
-      #    token: ${{ secrets.GH_TOKEN }}
-      #    tag: "1.1.0"
-      #    commit: ${{ github.sha }}
-      - uses: actions/upload-artifact@v1
+      - uses: ncipollo/release-action@v1
         with:
-          name: myapp
-          path: |
-            build/app/outputs/apk/debug/app-debug.apk
-            build/ios/iphoneos/Runner.app
+         artifacts: "build/app/outputs/ios/iphoneos/*.app"
+         token: ${{ secrets.GH_TOKEN }}
+         tag: "1.1.0"
+         commit: ${{ github.sha }}
 
